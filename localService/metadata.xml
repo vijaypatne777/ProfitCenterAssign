@@ -1,0 +1,87 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="YY1_FIN_CB_PROFIT_CENTER_CDS" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="P_Scbo_UserType" sap:label="User" sap:content-version="1">
+				<Key><PropertyRef Name="name"/></Key><Property Name="name" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User"
+					sap:quickinfo="User Name in User Master Record"/><Property Name="description" Type="Edm.String" MaxLength="80" sap:label="Description"
+					sap:quickinfo="Description of the Technical User Account"/></EntityType>
+			<EntityType Name="YY1_FIN_CB_PROFIT_CENTERType" sap:label="Profit Center Assignment" sap:content-version="1">
+				<Key><PropertyRef Name="SAP_UUID"/></Key><Property Name="SAP_UUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/><Property Name="YY1_FIN_CF_COMPANY_CODE" Type="Edm.String" MaxLength="4" sap:label="COMPANY CODE" sap:quickinfo="YY1_FIN_CF_COMPANY_CODE"/><Property Name="YY1_FIN_CF_CUSTOMER_GR" Type="Edm.String" MaxLength="2" sap:label="CUSTOMER GROUP" sap:quickinfo="YY1_FIN_CF_CUSTOMER_GR"/><Property Name="YY1_FIN_CF_MATERIAL_GRP" Type="Edm.String" MaxLength="9" sap:label="MATERIAL GROUP" sap:quickinfo="YY1_FIN_CF_MATERIAL_GRP"/><Property Name="YY1_FIN_CF_PROFIT_CENTER" Type="Edm.String" MaxLength="10" sap:label="PROFIT CENTER"
+					sap:quickinfo="YY1_FIN_CF_PROFIT_CENTER"/><Property Name="YY1_FIN_CF_EXP_DATE" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="EXPIRY DATE"
+					sap:quickinfo="YY1_FIN_CF_EXP_DATE"/><Property Name="SAP_CreatedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created On" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SAP_CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_CreatedByUser_Text"
+					sap:label="Created By" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_CreatedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Description"
+					sap:quickinfo="Description of the Technical User Account" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Last Changed On" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SAP_LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_LastChangedByUser_Text"
+					sap:label="Last Changed By" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_LastChangedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Description"
+					sap:quickinfo="Description of the Technical User Account" sap:creatable="false" sap:updatable="false"/><NavigationProperty Name="to_SAPSysAdminDataChangeUser" Relationship="YY1_FIN_CB_PROFIT_CENTER_CDS.assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"
+					FromRole="FromRole_assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F" ToRole="ToRole_assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"/><NavigationProperty Name="to_SAPSysAdminDataCreateUser" Relationship="YY1_FIN_CB_PROFIT_CENTER_CDS.assoc_5B96468B88511E40E5E179F7FA738CF3"
+					FromRole="FromRole_assoc_5B96468B88511E40E5E179F7FA738CF3" ToRole="ToRole_assoc_5B96468B88511E40E5E179F7FA738CF3"/></EntityType>
+			<Association Name="assoc_5B96468B88511E40E5E179F7FA738CF3" sap:content-version="1"><End Type="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType" Multiplicity="1"
+				Role="FromRole_assoc_5B96468B88511E40E5E179F7FA738CF3"/><End Type="YY1_FIN_CB_PROFIT_CENTER_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_5B96468B88511E40E5E179F7FA738CF3"/></Association>
+			<Association Name="assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F" sap:content-version="1"><End Type="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType" Multiplicity="1"
+				Role="FromRole_assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"/><End Type="YY1_FIN_CB_PROFIT_CENTER_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"/></Association>
+			<EntityContainer Name="YY1_FIN_CB_PROFIT_CENTER_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="P_Scbo_User" EntityType="YY1_FIN_CB_PROFIT_CENTER_CDS.P_Scbo_UserType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="YY1_FIN_CB_PROFIT_CENTER" EntityType="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType" sap:searchable="true"
+				sap:content-version="1"/>
+				<AssociationSet Name="assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"
+					Association="YY1_FIN_CB_PROFIT_CENTER_CDS.assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="YY1_FIN_CB_PROFIT_CENTER" Role="FromRole_assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"/><End EntitySet="P_Scbo_User" Role="ToRole_assoc_C5E6778BC5FC8B5E511B7A5AB3509D0F"/></AssociationSet>
+				<AssociationSet Name="assoc_5B96468B88511E40E5E179F7FA738CF3"
+					Association="YY1_FIN_CB_PROFIT_CENTER_CDS.assoc_5B96468B88511E40E5E179F7FA738CF3" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="YY1_FIN_CB_PROFIT_CENTER" Role="FromRole_assoc_5B96468B88511E40E5E179F7FA738CF3"/><End EntitySet="P_Scbo_User" Role="ToRole_assoc_5B96468B88511E40E5E179F7FA738CF3"/></AssociationSet>
+				<FunctionImport Name="YY1_FIN_CB_PROFIT_CENTERSap_upsert" ReturnType="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType"
+					EntitySet="YY1_FIN_CB_PROFIT_CENTER" m:HttpMethod="POST"><Parameter Name="YY1_FIN_CF_COMPANY_CODE" Type="Edm.String" Mode="In" MaxLength="4"/><Parameter Name="YY1_FIN_CF_CUSTOMER_GR" Type="Edm.String" Mode="In" MaxLength="2"/><Parameter Name="YY1_FIN_CF_MATERIAL_GRP" Type="Edm.String" Mode="In" MaxLength="9"/><Parameter Name="YY1_FIN_CF_PROFIT_CENTER" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="YY1_FIN_CF_EXP_DATE" Type="Edm.DateTime" Mode="In" Precision="0"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTER_CDS_Entities"><Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType/YY1_FIN_CF_COMPANY_CODE"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType/YY1_FIN_CF_CUSTOMER_GR"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType/YY1_FIN_CF_EXP_DATE"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType/YY1_FIN_CF_MATERIAL_GRP"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="YY1_FIN_CB_PROFIT_CENTER_CDS.YY1_FIN_CB_PROFIT_CENTERType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>YY1_FIN_CF_EXP_DATE</PropertyPath>
+						<PropertyPath>YY1_FIN_CF_MATERIAL_GRP</PropertyPath>
+						<PropertyPath>YY1_FIN_CF_CUSTOMER_GR</PropertyPath>
+						<PropertyPath>YY1_FIN_CF_COMPANY_CODE</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/sap/YY1_FIN_CB_PROFIT_CENTER_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://my301187.s4hana.ondemand.com:443/sap/opu/odata/sap/YY1_FIN_CB_PROFIT_CENTER_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
