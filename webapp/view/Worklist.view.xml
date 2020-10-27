@@ -1,0 +1,82 @@
+<mvc:View
+	controllerName="UploadProfit.UploadProftCenterAssignment.controller.Worklist"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+
+	<Page id="page">
+	
+		<content>
+			<Panel>
+				<FlexBox height="50px" justifyContent="Center" alignItems="Center">
+					<items>
+						<Text text="{i18n>UploadFileTitle}" width="5rem"></Text>
+						<l:HorizontalLayout>
+							<u:FileUploader width="16rem" id="fileUploader" name="myFileUpload" uploadUrl="upload/" uploadComplete="handleUploadComplete"/>
+							<ToolbarSpacer/>
+							<Button width="5rem" id="tUpload" icon="sap-icon://upload" press="handleUploadPress" type="Emphasized" tooltip="{i18n>UITooltip}" />
+							<Button width="5rem" id="cUpload" icon="sap-icon://upload-to-cloud" press="handlePost" type="Emphasized" tooltip="{i18n>UCTooltip}"/>
+			
+							<Button width="5rem" id="rclear" icon="sap-icon://refresh" press="handleRefresh" type="Emphasized" tooltip="{i18n>RTooltip}"/>
+						</l:HorizontalLayout>
+					</items>
+				</FlexBox>
+			</Panel>
+		 	
+					<Table id="profitTable" items="{ path: '/trec'}" growing="true" width="100%">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>TableTitle}" level="H2"/>
+								<ToolbarSpacer/>
+				               <Button id="DExcel" text="{i18n>dexcel}" type="Emphasized" icon="sap-icon://download" press=".downloadData"></Button>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="2rem">
+								<Text text="{i18n>Operation}"/>
+							</Column>
+							<Column width="2rem">
+								<Text text="{i18n>CCode}"/>
+							</Column>
+							<Column width="2rem">
+								<Text text="{i18n>CGroup}"/>
+							</Column>
+							<Column width="2rem">
+								<Text text="{i18n>MGroup}"/>
+							</Column>
+							<Column width="2rem">
+								<Text text="{i18n>PCenter}"/>
+							</Column>
+							<Column width="3rem">
+								<Text text="{i18n>EDate}"/>
+							</Column>
+							<Column width="6rem">
+								<Text text="{i18n>Message}"/>
+							</Column>
+							
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{Operation}"/>
+									<Text text="{CCode}"/>
+									<Text text="{CGroup}"/>
+									<Text text="{MGroup}"/>
+									<Text text="{PCenter}"/>
+									<Text text="{EDate}"/>
+									<Text text="{msg}"/>
+								 </cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+	
+		</content>
+		<footer>
+			<OverflowToolbar id="oToolBar"></OverflowToolbar>
+		</footer>
+	</Page>
+
+</mvc:View>
